@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // استيراد الصفحات
 import Home from './routes/Home';
@@ -22,21 +22,22 @@ function App() {
 
         {/* شريط التنقل */}
         <nav>
-          <ul>
-            <li><Link to="/">الرئيسية</Link></li>
-            <li><Link to="/azkar">الأذكار</Link></li>
-            <li><Link to="/quran">قرآني</Link></li>
-            <li><Link to="/library">مكتبتي</Link></li>
-            <li><Link to="/activities">الأنشطة</Link></li>
-            <li><Link to="/experiments">التجارب</Link></li>
-            <li><Link to="/parents">ركن الآباء</Link></li>
-            <li><Link to="/ocean">البحار والمحيطات</Link></li>
-            <li><Link to="/space">الفضاء</Link></li>
-            <li><Link to="/story">قصة وعبرة</Link></li>
-            <li><Link to="/about">عن الموقع</Link></li>
-            <li><Link to="/contact">اتصل بنا</Link></li>
-          </ul>
-        </nav>
+  <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', listStyle: 'none', padding: 0 }}>
+    <li><Link to="/">الرئيسية</Link></li>
+    <li><Link to="/azkar">الأذكار</Link></li>
+    <li><Link to="/quran">قرآني</Link></li>
+    <li><Link to="/library">مكتبتي</Link></li>
+    <li><Link to="/activities">الأنشطة</Link></li>
+    <li><Link to="/experiments">التجارب</Link></li>
+    <li><Link to="/parents">ركن الآباء</Link></li>
+    <li><Link to="/ocean">البحار والمحيطات</Link></li>
+    <li><Link to="/space">الفضاء</Link></li>
+    <li><Link to="/story">قصة وعبرة</Link></li>
+    <li><Link to="/about">عن الموقع</Link></li>
+    <li><Link to="/contact">اتصل بنا</Link></li>
+  </ul>
+</nav>
+
 
         {/* التوجيهات */}
         <Routes>
@@ -59,3 +60,4 @@ function App() {
 }
 
 export default App;
+
