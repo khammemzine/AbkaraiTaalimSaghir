@@ -1,5 +1,7 @@
+// frontend/src/App.jsx
+
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Home from './routes/Home';
 import Ocean from './routes/Ocean';
@@ -14,20 +16,18 @@ import Contact from './routes/Contact';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ocean" element={<Ocean />} />
-        <Route path="/quran" element={<Quran />} />
-        <Route path="/azkar" element={<Azkar />} />
-        <Route path="/library" element={<Library />} />
-        <Route path="/activities" element={<Activities />} />
-        <Route path="/experiments" element={<Experiments />} />
-        <Route path="/parents" element={<Parents />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/ocean" element={<Ocean />} />
+      <Route path="/quran" element={<Quran />} />
+      <Route path="/azkar" element={<Azkar />} />
+      <Route path="/library" element={<Library />} />
+      <Route path="/activities" element={<Activities />} />
+      <Route path="/experiments" element={<Experiments />} />
+      <Route path="/parents" element={<Parents />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 }
 
