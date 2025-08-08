@@ -1,3 +1,4 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
@@ -15,5 +16,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  base: '/AbkaraiTaalimSaghir/', // غيّرها إلى '/اسم-المستودع/' فقط إذا كنت تنشر على GitHub Pages
+  base: '/', // ✅ غيّرتها لأنك تستخدم Vercel وليس GitHub Pages
 })
