@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+// frontend/src/App.jsx
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import React from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 
 import Home from './routes/Home';
 import Ocean from './routes/Ocean';
@@ -14,24 +14,34 @@ import Experiments from './routes/Experiments';
 import Parents from './routes/Parents';
 import About from './routes/About';
 import Contact from './routes/Contact';
-import NotFound from './routes/NotFound';
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [pathname]);
-
-  return null;
-}
 
 function App() {
   return (
     <>
-      <ScrollToTop />
-      <Navbar />
-      <main style={{ minHeight: '80vh', padding: '1rem' }}>
+      {/* Navbar */}
+      <Navbar bg="light" expand="lg" className="mb-4">
+        <Container>
+          <Navbar.Brand href="#">فضاء العبقري الصغير</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <NavLink className="nav-link" to="/">الرئيسية</NavLink>
+              <NavLink className="nav-link" to="/ocean">البحار والمحيطات</NavLink>
+              <NavLink className="nav-link" to="/quran">قرآني</NavLink>
+              <NavLink className="nav-link" to="/azkar">الأذكار</NavLink>
+              <NavLink className="nav-link" to="/library">مكتبتي</NavLink>
+              <NavLink className="nav-link" to="/activities">الأنشطة</NavLink>
+              <NavLink className="nav-link" to="/experiments">التجارب</NavLink>
+              <NavLink className="nav-link" to="/parents">ركن الآباء</NavLink>
+              <NavLink className="nav-link" to="/about">عن الموقع</NavLink>
+              <NavLink className="nav-link" to="/contact">اتصل بنا</NavLink>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {/* Main content */}
+      <Container>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ocean" element={<Ocean />} />
@@ -43,10 +53,13 @@ function App() {
           <Route path="/parents" element={<Parents />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
-      </main>
-      <Footer />
+      </Container>
+
+      {/* Footer */}
+      <footer className="text-center mt-4 py-3 bg-light">
+        <p className="mb-0">© {new Date().getFullYear()} فضاء العبقري الصغير - جميع الحقوق محفوظة</p>
+      </footer>
     </>
   );
 }
