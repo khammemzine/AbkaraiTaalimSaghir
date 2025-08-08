@@ -18,24 +18,28 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white p-6">
+      {/* العنوان الرئيسي */}
       <header className="text-center mb-10">
-        <h1 className="text-4xl font-bold text-blue-700 mb-2">فضاء العبقري الصغير</h1>
+        <h1 className="text-4xl font-bold text-blue-700 mb-2">
+          فضاء العبقري الصغير
+        </h1>
         <p className="text-lg text-gray-700">
           اكتشف، تعلم، واستمتع في عالمنا التعليمي الممتع!
         </p>
       </header>
 
+      {/* روابط الأقسام */}
       <main className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {sections.map((section, index) => (
+        {sections.map(({ to, label, restricted }, index) => (
           <Link
             key={index}
-            to={section.to}
+            to={to}
             className="bg-white shadow-lg rounded-2xl p-6 text-center border border-gray-200 hover:shadow-xl hover:bg-blue-50 transition-all duration-300"
           >
             <span className="block text-xl font-semibold text-blue-800 mb-2">
-              {section.label}
+              {label}
             </span>
-            {section.restricted && (
+            {restricted && (
               <p className="text-xs text-red-500">(للمشتركين فقط)</p>
             )}
           </Link>
@@ -44,4 +48,3 @@ export default function Home() {
     </div>
   );
 }
-
