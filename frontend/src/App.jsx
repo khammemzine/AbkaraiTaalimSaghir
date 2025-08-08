@@ -1,11 +1,8 @@
-// frontend/src/App.jsx
-
-import React, { Suspense } from 'react';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
 
 import Home from './routes/Home';
 import Ocean from './routes/Ocean';
@@ -17,31 +14,40 @@ import Experiments from './routes/Experiments';
 import Parents from './routes/Parents';
 import About from './routes/About';
 import Contact from './routes/Contact';
+import NotFound from './routes/NotFound';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <Navbar />
-      <main style={{ minHeight: '80vh' }}>
-        <Suspense fallback={<div>جارٍ التحميل...</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/ocean" element={<Ocean />} />
-            <Route path="/quran" element={<Quran />} />
-            <Route path="/azkar" element={<Azkar />} />
-            <Route path="/library" element={<Library />} />
-            <Route path="/activities" element={<Activities />} />
-            <Route path="/experiments" element={<Experiments />} />
-            <Route path="/parents" element={<Parents />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<h2 style={{ textAlign: 'center' }}>404 - الصفحة غير موجودة</h2>} />
-          </Routes>
-        </Suspense>
+      <main style={{ minHeight: '80vh', padding: '1rem' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ocean" element={<Ocean />} />
+          <Route path="/quran" element={<Quran />} />
+          <Route path="/azkar" element={<Azkar />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/experiments" element={<Experiments />} />
+          <Route path="/parents" element={<Parents />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
-    </Router>
+    </>
   );
 }
 
