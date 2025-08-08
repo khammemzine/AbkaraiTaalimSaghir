@@ -1,5 +1,31 @@
-# .gitignore
-node_modules
+# 📦 Node modules
+node_modules/
+
+# ⚙️ بيئة العمل
 .env
-dist
-.vscode
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 🛠️ ملفات البناء المؤقتة
+dist/
+build/
+
+# 🧹 ملفات النظام
+.DS_Store
+Thumbs.db
+
+# 📁 ملفات Log
+*.log
+
+# ⚙️ ملفات خاصة بـ Vercel
+.vercel
+
+# ⚙️ ملفات خاصة بـ Render (ليست ضرورية عادة، لكن للاحتياط)
+render.yaml
+
+# ⚙️ أخرى
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
